@@ -1,15 +1,13 @@
 Summary:	fatattr - display or change attributes on a FAT filesystem
 Summary(pl.UTF-8):	fatattr - odczyt i zmiana atrybutów na systemie plików FAT
 Name:		fatattr
-Version:	1.0
+Version:	1.0.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/fs/fat/fatattr/%{name}-%{version}.tar.bz2
-# Source0-md5:	75e56953cf24ed04b2dfc7700ae4e6cf
+# Source0-md5:	efd7edaf48f2dfb56ef5db02a54e577a
 BuildRequires:	linux-libc-headers >= 7:2.6.11
-# bogus check
-BuildRequires:	zlib-devel
 Requires:	uname(release) >= 2.6.11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,9 +23,7 @@ plików FAT znanym z MS-DOS-a.
 
 %build
 %configure
-# pass empty LIBS to override bogus -lz
-%{__make} \
-	LIBS=
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
